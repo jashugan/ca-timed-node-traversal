@@ -78,7 +78,7 @@ def parse_output(output: [str], pattern: Pattern) -> ([str], [float]):
 
 
 class RunnerTest(unittest.TestCase):
-    LOG_PATTERN = re.compile(r"(\w+), (.*)")
+    STDOUT_PATTERN = re.compile(r"(\w+), (.*)")
 
     def setUp(self) -> None:
         self.file_path = pathlib.Path("tests-runner-fixture.json")
@@ -102,7 +102,7 @@ class RunnerTest(unittest.TestCase):
         setup_fixture("SIMPLE", self.file_path)
         outs, errs = self.run_script()
         self.assertFalse(errs)
-        nodes_visited, timings = parse_output(outs, self.LOG_PATTERN)
+        nodes_visited, timings = parse_output(outs, self.STDOUT_PATTERN)
         self.assertListEqual(nodes_visited, ["A", "B", "C"])
         self.assertListEqual(timings, [0.5, 0.7])
 

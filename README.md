@@ -47,7 +47,7 @@ python main.py my_workflow.json
 
 ### The tests
 
-The tests can be run with `python -m unittest discover`.
+The tests can be run with `python -m unittest discover`. The tests are not as quick as I would like them to be, because of the nature of the program (i.e. needing to wait for nodes to be processed). I could improve this by reducing the edge delay time a bit for in the fixtures.
 
 
 ## Developing
@@ -61,3 +61,7 @@ A note on code documentation. My personal preference is to avoid it whenever pos
 I'm not a huge fan of object-oriented programming, and avoid it where reasonable. I just find it easier to test and reason about when there's no strangely mutating state that I need to keep track of. For passing around data, I used named tuples here, but I also really like using Data Classes.
 
 I've type-hinted most of the code here, though I've probably missed a couple of spots. It's super helpful for PyCharm's validator. I didn't run mypy on the code.
+
+### Continuous Integration
+
+I was hopeful to have enough time to write a quick GitHub Actions workflow to run the tests and do code formatting. As it is, I spent longer than I expected on this "homework", so I dropped that idea.
